@@ -1,14 +1,14 @@
-# CodeExport macro for CorelDRAW #
+# CodeExport macro for CorelDRAW
 
 Export your macro's code.
 
-### Information ###
+### Information
 
-* Tested in CorelDRAW X7
+* Tested in CorelDRAW X7 & X3
 * Version 1.2
-* [Макросы (любой другой код) + GIT](http://cdrpro.ru/node/4460)
+* [Макросы (любой другой код) + GIT](http://cdrpro.ru/blog/macros-plus-git.html)
  
-### License ###
+### License
 
 Copyright (C) 2015 Sancho
 
