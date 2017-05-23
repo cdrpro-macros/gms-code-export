@@ -32,6 +32,49 @@ Private Sub exp_Click()
     Set vbp = vb.VBProjects.Item(list.ListIndex + 1)
 
     Dim vc As Object 'VBComponent
+' --------- Проверка защиты проекта --------------
+    If vbp.Protection Then
+        MsgBox "Проект защищен"
+        Exit Sub
+    End If
+'-------------------------------------------------
+'------- Для избежания появления неорганизованной кучи 
+'--------добавлена возможность создания новой папки для экспортируемого макроса.
+'--------Название папки имеет формат ИмяМакроса_Год_Месяц_День_Час_Минута
+'--------(так папки сами упорядочиваются в хронологическом порядке)
+    If Flag_NewFolder Then ' на форме добавлен чекбокс Flag_NewFolder
+        If Len(Month(Now)) = 1 Then
+            cMonth = "0" & Month(Now)
+        Else
+            cMonth = Month(Now)
+        End If
+        If Len(Day(Now)) = 1 Then
+            cDay = "0" & Day(Now)
+        Else
+            cDay = Day(Now)
+        End If
+        If Len(Hour(Now)) = 1 Then
+            cHour = "0" & Hour(Now)
+        Else
+            If Len(Hour(Now)) = 0 Then
+                cHour = "00" + Hour(Now)
+            Else
+                cHour = Hour(Now)
+            End If
+        End If
+        If Len(Minute(Now)) = 1 Then
+            cMinute = "0" & Minute(Now)
+        Else
+            If Len(Minute(Now)) = 0 Then
+                cMinute = "00" & Minute(Now)
+            Else
+                cMinute = Minute(Now)
+            End If
+        End If
+        Path = Path & "\" & vbp.Name & "_" & Year(Now) & "_" & cMonth & "_" & cDay & "__" & cHour & "_" & cMinute
+        MkDir Path
+    End If
+'-------------------------------------------------
     For Each vc In vbp.VBComponents
         Dim fileName$
         fileName = vc.Name
