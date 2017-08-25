@@ -5,7 +5,7 @@ Export your macro's code.
 ### Information
 
 * Tested in CorelDRAW X7 & X3
-* Version 1.2
+* Version 1.3
 * [Макросы (любой другой код) + GIT](http://cdrpro.ru/blog/macros-plus-git.html)
  
 ### License
